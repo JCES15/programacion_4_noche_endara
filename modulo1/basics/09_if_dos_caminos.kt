@@ -1,7 +1,7 @@
 fun main() {
   println("Control de Flujo")
 println("If Dos Caminos")
-println("Tiene Seguro medico")
+println("Tiene Seguro medico? s/n")
 val tieneSeguro = readLine()?.trim()?.lowercase()=="s"
 println("Costo Base de la Consulta")
 val costoBase= readLine()?.toDoubleOrNull()?:0.0
