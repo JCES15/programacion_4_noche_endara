@@ -1,0 +1,48 @@
+fun main(){
+    println("Listas")
+    println("Inmutables")
+    val frutas =listOf("manzana","banana","cereza","piña")
+    println(frutas)
+    println("Siza: ${frutas.size}")
+    println("Mostrar el elemento indice 0: ${frutas [0]}")
+    println("Mostrar el primer elemento: ${frutas.first()}")
+    println("Mostrar el ultimo elemento: ${frutas.last()}")    
+    
+    println("Mostrar el elemento indice 2: ${frutas.get(2)}")
+    println("Mostrar contendo segun indice: ${frutas.indexOf("banana")}")
+    println("Verificar existencia de un elemento: ${frutas.contains("piña")}")
+    println("Veriicar existenci de un elemento : ${"naranja" in frutas}")
+    
+    ////Sub Lista
+    
+    println("Sublista: ${frutas.subList(1,4)}")
+    println("Tomar los dos primeros elementos: ${frutas.take(2)}")
+    println("suprimir 3 primeros elementos: ${frutas.drop(3)}")
+    println("Tomar los ultimos 2 elementos: ${frutas.takeLast(2)}")
+    println(frutas)
+    println("Mutables")
+    val colores =  mutableListOf("blanco","azul","amarillo","rojo")
+    println(colores)
+    colores.add("verde")
+    println(colores)
+    colores.add(1,"morado")
+    println(colores)
+    colores.remove("verde")
+    println(colores)
+    colores[1]="gris"
+    println(colores)
+    
+    println("Array deque")
+    val numeros = ArrayDeque<Int>()
+    println(numeros)
+    numeros.addFirst(1)
+    println(numeros)
+    numeros.addFirst(3)
+    println(numeros)
+    numeros.addLast(2)
+    println(numeros)
+    numeros.removeFirst()
+    println(numeros)
+    numeros.removeLast()
+    println(numeros)
+}
