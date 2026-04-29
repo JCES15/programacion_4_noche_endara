@@ -19,7 +19,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity_multimedia : AppCompatActivity() {
 
 
     private lateinit var webView: WebView
@@ -129,5 +129,5 @@ class MainActivity : AppCompatActivity() {
         }
     }
     */
- */
+
 }

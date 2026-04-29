@@ -13,7 +13,7 @@ class MainActivityContador : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_contador)
 
         val textView = findViewById<TextView>(R.id.textViewContador)
         val btnSumar = findViewById<Button>(R.id.btnSumar)
