@@ -32,4 +32,5 @@ Mayor:  ${edad >= 18 ? 'Sí' : 'No'}
   print('Flutter'.substring(0, 4));         // Flut
   print('Flutter'.startsWith('Flu'));       // true
   print('abc'.padLeft(5, '0'));             // 00abc
+  print('abc'.padRight(5, '0'));             // abc00
 }
