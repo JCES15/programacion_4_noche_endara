@@ -22,4 +22,25 @@ void main() {
   // Forma más concisa con ??
   String display2 = ciudad?.toUpperCase() ?? 'Sin ciudad';
   print(display2);  // Sin ciudad
+
+
+
+  //////////////////////////////////////////
+  import 'dart:io';
+
+void main() {
+  print('Ingrese un numero :');
+  int numero = int.parse(stdin.readLineSync()!);
+  print('Numero: $numero'); 
+  if (numero >0){
+      print('El numero es positivo: $numero');}
+  else if (numero < 0){
+      print('El numero es negativo: $numero');
+  }
+  else if (numero ==0){
+      print('Es cero');
+  }
+  
+  
+}
 }
