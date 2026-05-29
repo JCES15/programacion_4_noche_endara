@@ -1,18 +1,17 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 }
 
 android {
-    namespace = "com.ute.compose"
+    namespace = "com.example.compose"
     compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
+        version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.ute.compose"
+        applicationId = "com.example.compose"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -33,6 +32,9 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = "11"
     }
     buildFeatures {
         compose = true
@@ -55,4 +57,7 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+    implementation("androidx.compose.material:material-icons-extended")
+
+
 }

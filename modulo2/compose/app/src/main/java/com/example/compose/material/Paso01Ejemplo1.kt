@@ -12,14 +12,11 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun Paso01SumaScreen() {
+fun Paso01Ejemplo1Screen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -39,9 +36,10 @@ fun Paso01SumaScreen() {
 // ── Demo 2: Suma de dos numeros ───────────────────────────────
 @Composable
 private fun SumaNumeros() {
+    var nombre      by remember { mutableStateOf("") }
     var numero1     by remember { mutableStateOf("") }
     var numero2    by remember { mutableStateOf("") }
-    var resultado   by remember { mutableStateOf("") }
+    var rel   by remember { mutableStateOf("") }
 
     Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
         Text("Formulario nuevo contacto",
@@ -50,9 +48,22 @@ private fun SumaNumeros() {
 
         // Nombre — validación básica de longitud
         OutlinedTextField(
+            value           = nombre,
+            onValueChange   = { nombre = it },
+            label           = { Text("PRODUCTO") },
+            leadingIcon     = { Icon(Icons.Default.Person, contentDescription = null) },
+
+            // keyboardOptions configura el teclado del sistema operativo
+            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
+            singleLine      = true,
+            modifier        = Modifier.fillMaxWidth()
+        )
+
+        // Nombre — validación básica de longitud
+        OutlinedTextField(
             value           =numero1,
             onValueChange   = { numero1 = it },
-            label           = { Text("Primer Valor") },
+            label           = { Text("Cantidad Comprada") },
             leadingIcon     = { Icon(Icons.Default.Person, contentDescription = null) },
 
             // keyboardOptions configura el teclado del sistema operativo
@@ -64,7 +75,7 @@ private fun SumaNumeros() {
         OutlinedTextField(
             value           =numero2,
             onValueChange   = { numero2 = it },
-            label           = { Text("Segundo Valor") },
+            label           = { Text("Precio Unitario") },
             leadingIcon     = { Icon(Icons.Default.Person, contentDescription = null) },
 
             // keyboardOptions configura el teclado del sistema operativo
@@ -74,21 +85,29 @@ private fun SumaNumeros() {
         )
 
         Button(
-            onClick  = {
-                val numero1Double = numero1.toDoubleOrNull()?:0.0
-                val numero2Double = numero2.toDoubleOrNull()?:0.0
-                resultado = (numero1Double+numero2Double ).toString()
+            onClick = {
+                val numero1Double = numero1.toDoubleOrNull() ?: 0.0
+                val numero2Double = numero2.toDoubleOrNull() ?: 0.0
+
+                var resultado = numero1Double * numero2Double
+
+                if (resultado > 50) {
+                    resultado -= resultado * 0.1
+                }
+
+                rel = resultado.toString()
             },
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text(text = "Suma")
+            Text(text = "CALCULAR")
         }
-        Text(text = "Resultado de $numero1 + $numero2 = $resultado")
+        Text(text = "Subtotal = $rel")
+
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun Paso01SumaPreview() {
-    MaterialTheme { Paso01SumaScreen() }
+fun Paso01Ejemplo1Preview() {
+    MaterialTheme { Paso01Ejemplo1Screen() }
 }

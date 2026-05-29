@@ -1,0 +1,95 @@
+# =========================
+# GENERAL (aplica en todo el repo)
+# =========================
+**/.DS_Store
+**/Thumbs.db
+**/*.log
+**/*.tmp
+**/*.swp
+
+# =========================
+# VARIABLES DE ENTORNO / SECRETOS
+# =========================
+**/.env
+**/.env.*
+**/*.keystore
+**/*.jks
+**/*.pem
+**/*.key
+
+# =========================
+# NODE / REACT NATIVE
+# =========================
+**/node_modules/
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+**/pnpm-debug.log*
+
+# Builds y caches
+**/dist/
+**/build/
+**/.expo/
+**/.expo-shared/
+
+# (Opcional) locks → quítalos si quieres reproducibilidad
+# **/package-lock.json
+# **/yarn.lock
+# **/pnpm-lock.yaml
+
+# =========================
+# ANDROID / KOTLIN (Gradle)
+# =========================
+**/.gradle/
+**/build/
+**/out/
+
+**/local.properties
+**/.idea/
+**/*.iml
+
+# Binarios Android
+**/*.apk
+**/*.aab
+
+# =========================
+# FLUTTER / DART
+# =========================
+**/.dart_tool/
+**/.packages
+**/.pub-cache/
+**/.pub/
+**/build/
+
+# Flutter específicos
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/.metadata
+
+# =========================
+# iOS (Flutter / React Native)
+# =========================
+**/ios/Pods/
+**/ios/DerivedData/
+**/ios/.symlinks/
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+
+# =========================
+# EDITORES / IDEs
+# =========================
+**/.vscode/
+**/.idea/
+**/*.code-workspace
+
+# =========================
+# TEST / COVERAGE
+# =========================
+**/coverage/
+**/.nyc_output/
+
+# =========================
+# ARCHIVOS TEMPORALES
+# =========================
+**/tmp/
+**/temp/
