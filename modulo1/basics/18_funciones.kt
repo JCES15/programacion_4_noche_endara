@@ -1,32 +1,34 @@
-fun main() {
-saludar()
-saludarConParametros("Michael")
-val  num1=10
-val num2=20
-println("Suma de $num1 + $num2 = ${sumar(num1, num2)}")
-println("Multiplicar $num1 * $num2 = ${multiplicar(num1, num2)}")
+fun main () {
+  saludar()
+  saludarConParametros("Michael")
+  val numero1=10
+  val numero2=20
+  println("Suma de $numero1 + $numero2 = ${sumar(numero1, numero2)}")
+  println("Resta de $numero1 - $numero2 = ${restar(numero1, numero2)}")
+  operacion()
+  println("Multiplicar $numero1 * $numero2 = ${multiplicar(numero1, numero2)}")
 }
 
 fun saludar(){
-    println("Hello world desde funtions")
-    
+    println("Hello world from functions")
 }
+
 fun saludarConParametros(nombre: String){
-    println("Buenas Noches : $nombre")
-}
-fun sumar(num1: Int, num2: Int): Int{
-    return num1+num2
+    println("Buenos noches: $nombre")
 }
 
-////funcion simplificada
-fun restar(num1: Int, num2: Int)= num1 - num2
+fun sumar(numero1: Int, numero2: Int): Int{
+    return numero1+numero2
+}
 
-////funcion dentro de funcion
+// funcion simplificada
+fun restar(numero1: Int, numero2: Int)= numero1-numero2
+
+//funcion dentro de funcion
 fun operacion(){
     fun cuadrado(x: Int)= x*x
     println(cuadrado(5))
 }
- 
- ////funciones con variables
- val multiplicar= {a:Int, b: Int-> a*b}
- 
+
+//funciones como variables
+val multiplicar={a: Int, b: Int-> a*b}

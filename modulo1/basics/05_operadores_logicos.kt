@@ -1,18 +1,23 @@
 fun main() {
- println("Operadores Logicos")
- val esMayor = true
- val tienePermiso=false
- val estaActivo=true
- val mayorEdad=false
+    println("Operadores Lógicos")
+
+    val esMayor = true
+    val tienePermiso = false
+    val estadoActivo = true
+    val mayorEdad = false
+
+    println("Operador And &&")
+    println("$esMayor && $tienePermiso = ${esMayor && tienePermiso}")
+    println("$esMayor && $estadoActivo = ${esMayor && estadoActivo}")
+
+    println("Operador Or ||")
+    println("$esMayor || $tienePermiso = ${esMayor || tienePermiso}")
+    println("$esMayor || $estadoActivo = ${esMayor || estadoActivo}")
+    println("$mayorEdad || $tienePermiso = ${mayorEdad || tienePermiso}")
+    println("$mayorEdad || $tienePermiso || $estadoActivo = ${mayorEdad || tienePermiso || estadoActivo}")
+
+    println(" Not logico!")
+    println("!$esMayor = ${!esMayor}")
+    println("!$mayorEdad = ${!mayorEdad}")
  
- println("Operador And &&")
- println("$esMayor && $tienePermiso ${esMayor&&tienePermiso}")
- println("$esMayor && $estaActivo ${esMayor&&estaActivo}")
- println("Or Logico ||")
- println("$esMayor || $tienePermiso ${esMayor||tienePermiso}")
- println("$esMayor || $estaActivo ${esMayor||estaActivo}")
- println("$mayorEdad || $tienePermiso ${mayorEdad||tienePermiso}")
- 
- println("Not Logico")
- println("!$esMayor ${!esMayor}")
- println("! $mayorEdad ${!mayorEdad}")
+}

@@ -1,49 +1,37 @@
 fun main() {
-    
-    //Val inmutable
-    val nombre= "Ana"
-    val edad : Int = 30
-    // Val mutable
+    val nombre = "Heymi"
+    val edad: Int = 20
     var contador = 0 
-    contador=contador+1 
+    contador = contador + 1
     
-    println("$nombre tiene $edad años") 
+    println("$nombre tiene $edad años")
+
+    val n1: Byte = 127
+    val n2: Short = 32_767
+    val n3: Int = 12
+    val n4: Long = 2_222_222_222_2L 
+
+    println(n1)
+    println(n2)
+    println(n3)
+    println(n4)
+
+    val boleano: Boolean = true
+    val caracter: Char = 'k'
+    val cadena: String = " Kotlin"
+
+    val inferidoString = "String"
+    println("Tipo: ${inferidoString::class.simpleName}")
     
-    ////Tipos de datos 
-    var numero1: Byte = 127 
-    var numero2: Short = 32_767 
-    var numero3: Int = 12 
-    var numero4: Long = 2_222_222_333_222_233 
+    val inferidoInt = 12
+    println("Tipo: ${inferidoInt::class.simpleName}")
+
+    val primerNombre = "Alex"
+    val primerApellido = "Perez" // Corregido: "primerapellido" -> "primerApellido"
     
-    println(numero1) 
-    println(numero2) 
-    println(numero3) 
-    println(numero4) 
-    
-    /// Numero Decimales
-    var numero5: Float = 3.14f
-    var numero6: Double = 3.1416125 
-    
-    val booleano: Boolean = true
-    
-    /// Caracteres
-    val caracter: Char = 'k' 
-    val cadena: String = "kotlin" 
-    val inferido: 'string' 
-    
-    println("Tipo de inferido: ${inferido::class.simpleName}") 
-    var inferidoi1 = 12
-    println("tipo de inferido: ${inferido1::class.simpleName}")
-    
-    ///Utilidades de String
-    ////Expresiones
-    
-    val primerNombre = "Pedro" 
-    val primerApellido = "Perez"
-    val primerNombreMayuscula=primerNombre.uppercase() 
-    val primerApellidoMayuscula=primerApellido.uppercase() 
-    
-    println("Nombre Completo: ${primerNombreMayuscula} ${primerApellidoMayuscula}") 
-    println("Nombre Completo: ${primerNombre.uppercase()} ${primerApellido.uppercase()}") 
-    
+    val primerNombreMayuscula = primerNombre.uppercase()
+    val primerApellidoMayuscula = primerApellido.uppercase()
+
+    println("Nombre completo: ${primerNombreMayuscula}${primerApellidoMayuscula}")
+    println("Nombre completo: ${primerNombre.uppercase()}${primerApellido.uppercase()}")
 }
