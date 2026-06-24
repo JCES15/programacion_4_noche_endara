@@ -1,10 +1,8 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 class Indicador extends StatelessWidget {
   final String  label;
-  final Int  valor;          // String para mayor flexibilidad: '8', '4.2 GB', '99%'
+  final String  valor;          // String para mayor flexibilidad: '8', '4.2 GB', '99%'
   final Color   color;
   final String? subtitulo;      // línea adicional opcional
   final IconData? icono;        // ícono opcional antes del valor
