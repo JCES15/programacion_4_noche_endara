@@ -64,7 +64,7 @@ class SizedboxCustom extends StatelessWidget {
                 'TLS 1.3',
                 'HTTP/2',
                 'IPv6',
-                'Load Balancer',
+                'Load Balancer'
                 'CDN',
                 'WAF',
               ].map((t) => Chip(label: Text(t))).toList(),
