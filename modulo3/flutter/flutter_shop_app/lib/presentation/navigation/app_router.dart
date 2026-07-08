@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_shop_app/presentation/screens/admin/categories_admin_screen.dart';
 import 'package:flutter_shop_app/presentation/screens/admin/dashboard_screen.dart';
+import 'package:flutter_shop_app/presentation/screens/admin/products_admin_screen.dart';
 import 'package:flutter_shop_app/presentation/widgets/admin_shell.dart';
 import 'package:go_router/go_router.dart';
 import '../../domain/model/auth_state.dart';
@@ -117,7 +118,7 @@ GoRoute(
   builder: (_, state) => AdminShell(
     title:        'Productos',
     currentRoute: state.matchedLocation,
-    child:        const _AdminPlaceholder('Productos — M9'),
+    child:        const ProductsAdminScreen(),
   ),
 ),
 GoRoute(
