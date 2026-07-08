@@ -3,7 +3,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../domain/model/category.dart';
 import '../../domain/repository/category_repository.dart';
-import '../../domain/remote/api/category_remote_datasource.dart';
+import '../remote/api/category_remote_datasource.dart';
 
 class CategoryRepositoryImpl implements CategoryRepository {
   final CategoryRemoteDatasource _datasource;
