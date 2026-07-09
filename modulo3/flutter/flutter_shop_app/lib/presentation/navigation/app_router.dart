@@ -146,8 +146,10 @@ GoRoute(
     child:        const _AdminPlaceholder('Usuarios — M11'),
   ),
 ),
+
+    ],
   );
-});
+}); 
 
 class _AuthStateListenable extends ChangeNotifier {
   _AuthStateListenable(Ref ref) {
