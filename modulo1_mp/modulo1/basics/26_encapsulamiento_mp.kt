@@ -1,19 +1,60 @@
-class Rectangulo(val ancho: Double, val alto: Double) {
-    val area:      Double get() = ancho * alto
-    val perimetro: Double get() = 2 * (ancho + alto)
+class Empleado(
+    val id: Int,
+    val nombre: String
+) {
 
-    // Siempre llaman al constructor primario con this(...)
-    constructor(lado: Double) : this(lado, lado)
-    constructor(ancho: Int, alto: Int) : this(ancho.toDouble(), alto.toDouble())
+    // Atributo privado
+    private var horasTrabajadas: Int = 0
 
-    override fun toString() = "Rectángulo(${ancho}x${alto}) | área=${area}"
+    // Registrar horas trabajadas
+    fun registrarHoras(horas: Int) {
+
+        if (horas > 0) {
+            horasTrabajadas += horas
+            println("Horas registradas correctamente.")
+        } else {
+            println("Las horas deben ser mayores a cero.")
+        }
+    }
+
+    // Consultar horas trabajadas
+    fun obtenerHorasTrabajadas(): Int {
+        return horasTrabajadas
+    }
+
+    // Calcular salario
+    fun calcularSalario(valorHora: Double): Double {
+        return horasTrabajadas * valorHora
+    }
+
+    // Mostrar información
+    fun mostrarInformacion() {
+        println("\n=== EMPLEADO ===")
+        println("ID: $id")
+        println("Nombre: $nombre")
+        println("Horas trabajadas: $horasTrabajadas")
+    }
 }
 
 fun main() {
-    val r1 = Rectangulo(5.0, 3.0)
-    val r2 = Rectangulo(4.0)        // cuadrado
-    val r3 = Rectangulo(6, 2)       // con Int
 
-    println(r1)  // Rectángulo(5.0x3.0) | área=15.0
-    println(r2)  // Rectángulo(4.0x4.0) | área=16.0
+    print("Ingrese el ID del empleado: ")
+    val id = readLine()?.toIntOrNull() ?: 0
+
+    print("Ingrese el nombre del empleado: ")
+    val nombre = readLine() ?: ""
+
+    val empleado = Empleado(id, nombre)
+
+    print("Ingrese las horas trabajadas: ")
+    val horas = readLine()?.toIntOrNull() ?: 0
+
+    empleado.registrarHoras(horas)
+
+    print("Ingrese el valor por hora: ")
+    val valorHora = readLine()?.toDoubleOrNull() ?: 0.0
+
+    empleado.mostrarInformacion()
+
+    println("Salario a pagar: $${empleado.calcularSalario(valorHora)}")
 }

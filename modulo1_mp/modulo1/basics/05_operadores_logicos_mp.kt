@@ -1,23 +1,14 @@
 fun main() {
-    println("Operadores Lógicos")
 
-    val esMayor = true
-    val tienePermiso = false
-    val estadoActivo = true
-    val mayorEdad = false
+    print("Años en la empresa: ")
+    val anios = readLine()?.toIntOrNull() ?: 0
 
-    println("Operador And &&")
-    println("$esMayor && $tienePermiso = ${esMayor && tienePermiso}")
-    println("$esMayor && $estadoActivo = ${esMayor && estadoActivo}")
+    print("Calificación de desempeño: ")
+    val evaluacion = readLine()?.toIntOrNull() ?: 0
 
-    println("Operador Or ||")
-    println("$esMayor || $tienePermiso = ${esMayor || tienePermiso}")
-    println("$esMayor || $estadoActivo = ${esMayor || estadoActivo}")
-    println("$mayorEdad || $tienePermiso = ${mayorEdad || tienePermiso}")
-    println("$mayorEdad || $tienePermiso || $estadoActivo = ${mayorEdad || tienePermiso || estadoActivo}")
-
-    println(" Not logico!")
-    println("!$esMayor = ${!esMayor}")
-    println("!$mayorEdad = ${!mayorEdad}")
- 
+    if (anios > 2 && evaluacion >= 90) {
+        println("Empleado apto para bono.")
+    } else {
+        println("Empleado no apto para bono.")
+    }
 }

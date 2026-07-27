@@ -1,35 +1,55 @@
 fun main() {
-  println("When con bloques de codigo")
-  println("Nombre Paciente:")
-  val paciente = readLine()?.trim()?:""
-  println("Nivel de alergia CRITICO/URGENTE/MODERADO/LEVE:")
-  val nivel = readLine()?.trim()?.uppercase()?:""
-  
-  when (nivel){
-      "CRITICO"->{
-        println("ALERTA CRITICA PACIENTE. $paciente")
-        println("Accion Inmediata")
-        println("Registrar hora de activacion de protocolo ")
-      }
-        "URGENTE"->{
-            println("URGENTE PACIENTE. $paciente")
-            println("PRIORIZA SALA DE ESPERA")
-            println("Registrar hora de activacion ")
+
+    println("=== SISTEMA DE RECURSOS HUMANOS ===")
+    println("1. Registrar empleado")
+    println("2. Consultar empleado")
+    println("3. Generar nómina")
+
+    print("Seleccione una opción: ")
+    val opcion = readLine()?.toIntOrNull() ?: 0
+
+    when (opcion) {
+
+        1 -> {
+            println("\n--- Registro de Empleado ---")
+
+            print("Ingrese el nombre: ")
+            val nombre = readLine() ?: ""
+
+            print("Ingrese el cargo: ")
+            val cargo = readLine() ?: ""
+
+            println("Empleado registrado correctamente.")
+            println("Nombre: $nombre")
+            println("Cargo: $cargo")
         }
-        "MODERADO"->println(" MODERADO PACIENTE. $paciente, registrar monitorear")
-        "LEVE"->println("LEVE PACIENTE. $paciente, registrar en la lista normal")
-        else-> println("Protocolo no reconocido")
-  }
 
-  println("Edad:")
-  val edad  = readLine()?.toIntOrNull() ?: 0
-  val tarifa = when (edad){
-      in 0..2 -> "Neonatal "
-      in 3..11 -> " Pediatrico"
-      in 12..17 -> " Adolescente"
-      in 18..64 -> " Adulto"
-      else -> "Adulto Mayor"
-  }
-  println("$edad años -> $tarifa")
+        2 -> {
+            println("\n--- Consulta de Empleado ---")
 
+            print("Ingrese el ID del empleado: ")
+            val id = readLine() ?: ""
+
+            println("Buscando información del empleado $id...")
+            println("Consulta finalizada.")
+        }
+
+        3 -> {
+            println("\n--- Generación de Nómina ---")
+
+            print("Ingrese el salario: ")
+            val salario = readLine()?.toDoubleOrNull() ?: 0.0
+
+            val descuento = salario * 0.0945
+            val neto = salario - descuento
+
+            println("Salario: $$salario")
+            println("Descuento: $$descuento")
+            println("Salario Neto: $$neto")
+        }
+
+        else -> {
+            println("Opción no válida.")
+        }
+    }
 }

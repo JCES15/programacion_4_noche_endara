@@ -1,31 +1,22 @@
-enum class Estado(val descripcion: String, val esTerminal: Boolean) {
-    PENDIENTE  ("Esperando procesamiento", false),
-    EN_PROCESO ("Siendo procesado",        false),
-    COMPLETADO ("Finalizado con éxito",    true),
-    FALLIDO    ("Finalizado con error",    true),
-    CANCELADO  ("Cancelado por usuario",   true);
-
-    fun puedeTransicionarA(siguiente: Estado): Boolean = when (this) {
-        PENDIENTE  -> siguiente == EN_PROCESO || siguiente == CANCELADO
-        EN_PROCESO -> siguiente == COMPLETADO || siguiente == FALLIDO
-        else       -> false
-    }
+enum class TipoContrato {
+    TIEMPO_COMPLETO,
+    MEDIO_TIEMPO,
+    TEMPORAL,
+    PRACTICAS
 }
 
 fun main() {
-    val estado = Estado.EN_PROCESO
-    println(estado.descripcion)  // Siendo procesado
-    println(estado.esTerminal)   // false
 
-    // when exhaustivo — sin else porque el compilador conoce todos los casos
-    val icono = when (estado) {
-        Estado.PENDIENTE   -> "⏰"
-        Estado.EN_PROCESO  -> "⏳"
-        Estado.COMPLETADO  -> "✅"
-        Estado.FALLIDO     -> "❌"
-        Estado.CANCELADO   -> "🚫"
+    print("Seleccione el tipo de contrato (1-4): ")
+    val opcion = readLine()?.toIntOrNull() ?: 0
+
+    val contrato = when (opcion) {
+        1 -> TipoContrato.TIEMPO_COMPLETO
+        2 -> TipoContrato.MEDIO_TIEMPO
+        3 -> TipoContrato.TEMPORAL
+        4 -> TipoContrato.PRACTICAS
+        else -> TipoContrato.TEMPORAL
     }
-    println(icono)  // ⏳
 
-    println(estado.puedeTransicionarA(Estado.COMPLETADO))  // true
+    println("Tipo de contrato seleccionado: $contrato")
 }

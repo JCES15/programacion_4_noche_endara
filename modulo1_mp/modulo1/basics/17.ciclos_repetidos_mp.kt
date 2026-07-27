@@ -1,22 +1,21 @@
 fun main() {
-    println("CICLOS repeat")
-    println("cuantas pulsaciones tomar para calcular frecuencia")
-    val mediciones = readLine()?.toIntOrNull() ?: 3
-    var totalPulsaciones = 0
 
-    repeat(mediciones) { i ->
-        println("Medicion ${i + 1} (pulsos en 15 seg)")
-        val pulsos = readLine()?.toIntOrNull() ?: 0
-        totalPulsaciones += pulsos * 4 
-    }
+    print("Ingrese el número de departamentos: ")
+    val departamentos = readLine()?.toIntOrNull() ?: 0
 
-    val promedio = totalPulsaciones / mediciones
-    println("Frecuencia cardiaca promedio: $promedio lpm")
-    println("Clasificacion: ${
-        when {
-            promedio < 60 -> "Bradicardia"
-            promedio <= 100 -> "Normal"
-            else -> "Taquicardia"
+    for (i in 1..departamentos) {
+
+        println("\nDepartamento $i")
+
+        print("¿Cuántos empleados tiene?: ")
+        val empleados = readLine()?.toIntOrNull() ?: 0
+
+        for (j in 1..empleados) {
+
+            print("Nombre del empleado $j: ")
+            val nombre = readLine() ?: ""
+
+            println("Empleado registrado: $nombre")
         }
-    }")
+    }
 }

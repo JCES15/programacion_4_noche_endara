@@ -10,8 +10,8 @@ fun main(){
     println("numero1>=numero2 ${numero1>=numero2}")
     println("numero1<=numero2 ${numero1<=numero2}")
     
-    var string1= "kotlin"
-    var string2= "kotlin"
+    var string1= "JC_RRHH"
+    var string2= "JC_RRHH"
     
     println("string1===string2 ${string1===string2}")
     println("string1==string2 ${string1==string2}")

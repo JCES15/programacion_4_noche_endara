@@ -1,25 +1,19 @@
-    fun main() {
-        println("Condicional When")
-        println("Código de especialidad? (1-7)")
-        println("1->Medicina general")
-        println("2->Pediatria")
-        println("3->Cardiologia")
-        println("4->Ginecologia")
-        println("5->Traumatologia")
-        println("6->Neurologia")
-        println("7->Dermatologia")
+fun main() {
 
-        val codigo = readLine()?.toIntOrNull() ?: 0
-        val especialidad = when(codigo) {
-            1 -> "Medicina general"
-            2 -> "Pediatria"
-            3 -> "Cardiologia"
-            4 -> "Ginecologia"
-            5 -> "Traumatologia"
-            6 -> "Neurologia"
-            7 -> "Dermatologia"
-            else -> "Especialidad no registrada"
-        }
+    println("=== SISTEMA DE RECURSOS HUMANOS ===")
+    println("1. Recursos Humanos")
+    println("2. Contabilidad")
+    println("3. Sistemas")
+    println("4. Ventas")
 
-        println("Especialidad: $especialidad")
+    print("Seleccione un departamento: ")
+    val opcion = readLine()?.toIntOrNull() ?: 0
+
+    when (opcion) {
+        1 -> println("Ha seleccionado el departamento de Recursos Humanos.")
+        2 -> println("Ha seleccionado el departamento de Contabilidad.")
+        3 -> println("Ha seleccionado el departamento de Sistemas.")
+        4 -> println("Ha seleccionado el departamento de Ventas.")
+        else -> println("Opción no válida.")
     }
+}

@@ -1,16 +1,18 @@
 fun main() {
-    println ("If con multiples condiciones")
-    val sistolica = readLine()?.toIntOrNull()?:0
-    val clasificacion = if(sistolica>90){
-        "Hipotension"
-    } else if (sistolica<=119){
-        "Normal"
-    } else if (sistolica<=139){
-        "Elevada"
-    } else if (sistolica<=179){
-        "Hipertesion grado 2"
+
+    print("Ingrese el nombre del empleado: ")
+    val nombre = readLine() ?: ""
+
+    print("Ingrese la calificación de desempeño (0-100): ")
+    val calificacion = readLine()?.toIntOrNull() ?: 0
+
+    if (calificacion >= 90) {
+        println("$nombre tiene un desempeño EXCELENTE.")
+    } else if (calificacion >= 75) {
+        println("$nombre tiene un desempeño BUENO.")
+    } else if (calificacion >= 60) {
+        println("$nombre tiene un desempeño REGULAR.")
     } else {
-        "Crisis Hipertesiva"
+        println("$nombre necesita mejorar su desempeño.")
     }
-    println("Clasificacion: $clasificacion")
 }

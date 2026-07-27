@@ -1,23 +1,23 @@
 fun main() {
-    println("If con multiples condiciones anidadas")
-    println("El paciente tiene antecedentes cardiacos? s/n")
 
-    val tieneAntecedente = readLine()?.trim() ?.lowercase ()=="s"
-    println ("Frecuencia  cardiaca 1pm")
+    print("Ingrese el nombre del empleado: ")
+    val nombre = readLine() ?: ""
 
-    val frecuencia = readLine ()?. toIntOrNull()?:0
-    if (tieneAntecedente) {
-       println("Bradicardiaca")
-       
-    } else if (frecuencia > 100) {
-        println("Frecuencia dentro del rango")
-    } else {
-        println("Paciente sin antecedentes cardiacos")
-        if (frecuencia<60 || frecuencia >100){
-            println("Frecuencia fuera de lo normal")
+    print("Ingrese los años de antigüedad: ")
+    val antiguedad = readLine()?.toIntOrNull() ?: 0
+
+    print("Ingrese la calificación de desempeño: ")
+    val evaluacion = readLine()?.toIntOrNull() ?: 0
+
+    if (antiguedad >= 3) {
+
+        if (evaluacion >= 90) {
+            println("$nombre es candidato para ascenso.")
         } else {
-            println("Frecuencia cardiaca normal")
+            println("$nombre cumple la antigüedad, pero no la evaluación requerida.")
         }
-    }
 
+    } else {
+        println("$nombre no cumple la antigüedad mínima para ascenso.")
+    }
 }

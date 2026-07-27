@@ -1,30 +1,31 @@
-object Configuracion {
-    val host:    String = "api.ejemplo.com"
-    val puerto:  Int    = 443
-    private val apiKey: String = "sk-secreto-123"   // privado — nunca expuesto
+object RecursosHumanos {
 
-    fun baseUrl() = "https://$host:$puerto"
-    fun headers() = mapOf("Authorization" to "Bearer $apiKey")
-}
+    private val empleados = mutableListOf<String>()
 
-class Usuario private constructor(val id: Int, val nombre: String) {
-    companion object {
-        private var contadorId = 0
+    fun agregarEmpleado(nombre: String) {
+        empleados.add(nombre)
+        println("Empleado registrado correctamente.")
+    }
 
-        // Factory function — encapsulamiento del constructor
-        fun crear(nombre: String, email: String): Usuario? {
-            if (nombre.isBlank() || !email.contains("@")) return null
-            return Usuario(++contadorId, nombre.trim())
+    fun listarEmpleados() {
+
+        println("\n=== LISTA DE EMPLEADOS ===")
+
+        if (empleados.isEmpty()) {
+            println("No existen empleados registrados.")
+        } else {
+            empleados.forEach {
+                println(it)
+            }
         }
-
-        const val ROL_DEFECTO = "viewer"
     }
 }
 
 fun main() {
-    println(Configuracion.baseUrl())  // https://api.ejemplo.com:443
-    // Configuracion.apiKey            // ERROR — privado
 
-    val u = Usuario.crear("Ana", "ana@test.com")
-    println(u)  // Usuario(id=1, nombre=Ana García)
+    RecursosHumanos.agregarEmpleado("Juan Pérez")
+    RecursosHumanos.agregarEmpleado("María López")
+    RecursosHumanos.agregarEmpleado("Carlos Ruiz")
+
+    RecursosHumanos.listarEmpleados()
 }

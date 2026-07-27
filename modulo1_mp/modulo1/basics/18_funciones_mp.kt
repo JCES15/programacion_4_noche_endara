@@ -1,34 +1,20 @@
-fun main () {
-  saludar()
-  saludarConParametros("Michael")
-  val numero1=10
-  val numero2=20
-  println("Suma de $numero1 + $numero2 = ${sumar(numero1, numero2)}")
-  println("Resta de $numero1 - $numero2 = ${restar(numero1, numero2)}")
-  operacion()
-  println("Multiplicar $numero1 * $numero2 = ${multiplicar(numero1, numero2)}")
+fun calcularSalarioNeto(salario: Double): Double {
+
+    val descuento = salario * 0.0945
+
+    return salario - descuento
 }
 
-fun saludar(){
-    println("Hello world from functions")
+fun main() {
+
+    print("Ingrese el nombre del empleado: ")
+    val nombre = readLine() ?: ""
+
+    print("Ingrese el salario: ")
+    val salario = readLine()?.toDoubleOrNull() ?: 0.0
+
+    val salarioNeto = calcularSalarioNeto(salario)
+
+    println("\nEmpleado: $nombre")
+    println("Salario Neto: $$salarioNeto")
 }
-
-fun saludarConParametros(nombre: String){
-    println("Buenos noches: $nombre")
-}
-
-fun sumar(numero1: Int, numero2: Int): Int{
-    return numero1+numero2
-}
-
-// funcion simplificada
-fun restar(numero1: Int, numero2: Int)= numero1-numero2
-
-//funcion dentro de funcion
-fun operacion(){
-    fun cuadrado(x: Int)= x*x
-    println(cuadrado(5))
-}
-
-//funciones como variables
-val multiplicar={a: Int, b: Int-> a*b}

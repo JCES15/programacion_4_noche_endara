@@ -1,19 +1,15 @@
 fun main() {
 
-    println("Control de Flujo")
-    println("if Simple")
-    println("Temperatura corporal del paciente grados centig.")
+    print("Ingrese el nombre del empleado: ")
+    val nombre = readLine() ?: ""
 
+    print("Ingrese el salario del empleado: ")
+    val salario = readLine()?.toDoubleOrNull() ?: 0.0
 
-    val temperatura= readLine()?.toDoubleOrNull()?:35.5
-    if(temperatura>=38){
-        println("Fiebre detectada")
-    }
-    if(temperatura>=40){
-        println("Fiebre Alta")
+    if (salario < 1000) {
+        println("$nombre puede recibir un bono de ayuda económica.")
     }
 
-    println("Temperatura registrada: $temperatura")
-
- 
+    println("Proceso finalizado.")
+    println("Nombre: $nombre, Sueldo: $$salario")
 }

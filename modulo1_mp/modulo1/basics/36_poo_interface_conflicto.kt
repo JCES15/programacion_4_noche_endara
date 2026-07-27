@@ -1,52 +1,71 @@
-interface Serializable {
-    val id: String                    // abstracta — debe implementarse
-    fun serializar(): String          // abstracta — debe implementarse
-    val version: Int get() = 1        // con default — puede sobreescribirse
+import 'dart:io';
+
+// 🧑‍💼 Clase base
+class Empleado {
+  String nombre;
+  double salario;
+
+  Empleado(this.nombre, this.salario);
+
+  // 🔁 Método que será sobrescrito
+  double calcularBono() {
+    return salario * 0.10;
+  }
+
+  double salarioTotal() {
+    return salario + calcularBono();
+  }
+
+  void mostrarInfo() {
+    print("\n--- EMPLEADO RRHH ---");
+    print("Nombre: $nombre");
+    print("Salario base: \$${salario.toStringAsFixed(2)}");
+    print("Bono: \$${calcularBono().toStringAsFixed(2)}");
+    print("Total: \$${salarioTotal().toStringAsFixed(2)}");
+  }
 }
 
-interface Validable {
-    val errores: List<String>
-    val esValido: Boolean get() = errores.isEmpty()
+// 👨‍💼 Empleado fijo
+class EmpleadoFijo extends Empleado {
+  EmpleadoFijo(String nombre, double salario) : super(nombre, salario);
 
-    fun validar(): Boolean
-    fun imprimirErrores() {                // implementación por defecto
-        if (errores.isEmpty()) println("Sin errores")
-        else errores.forEach { println("  ❌ $it") }
-    }
+  @override
+  double calcularBono() {
+    return salario * 0.20;
+  }
 }
 
-// POLIMORFISMO: Pedido puede usarse donde se espere Serializable O Validable
-data class Pedido(
-    override val id: String,
-    val cliente:     String,
-    val items:       List<String>,
-    val total:       Double
-) : Serializable, Validable {
+// 👨‍💼 Empleado temporal
+class EmpleadoTemporal extends Empleado {
+  EmpleadoTemporal(String nombre, double salario) : super(nombre, salario);
 
-    override fun serializar() =
-        "$id|$cliente|${items.joinToString(",")}|$total"
-
-    override val errores: List<String> get() = buildList {
-        if (cliente.isBlank()) add("El cliente no puede estar vacío")
-        if (items.isEmpty())   add("El pedido debe tener al menos un item")
-        if (total <= 0)        add("El total debe ser mayor que cero")
-    }
-
-    override fun validar() = esValido
+  @override
+  double calcularBono() {
+    return salario * 0.05;
+  }
 }
 
-fun main() {
-    val pedido1 = Pedido("P001", "Ana", listOf("Teclado", "Mouse"), 119.98)
-    val pedido2 = Pedido("P002", "",    emptyList(),                -5.0)
+// 👨‍💼 Freelance
+class EmpleadoFreelance extends Empleado {
+  EmpleadoFreelance(String nombre, double salario) : super(nombre, salario);
 
-    // Polimorfismo por interfaz
-    fun procesarSerializable(s: Serializable) = println("→ ${s.serializar()}")
-    fun procesarValidable(v: Validable) {
-        println("Válido: ${v.esValido}")
-        v.imprimirErrores()
-    }
+  @override
+  double calcularBono() {
+    return salario * 0.02;
+  }
+}
 
-    procesarSerializable(pedido1)   // → P001|Ana|Teclado,Mouse|119.98
-    procesarValidable(pedido1)      // Válido: true / Sin errores
-    procesarValidable(pedido2)      // Válido: false / ❌ ...
+void main() {
+  print("--- SISTEMA RRHH ---");
+
+  List<Empleado> empleados = [
+    EmpleadoFijo("Carlos", 1000),
+    EmpleadoTemporal("Ana", 800),
+    EmpleadoFreelance("Luis", 1200),
+  ];
+
+  // 🔁 Polimorfismo en acción
+  for (var emp in empleados) {
+    emp.mostrarInfo(); // cada uno responde diferente a calcularBono()
+  }
 }

@@ -1,27 +1,15 @@
 fun main() {
-    println("When con condiciones")
-    println("Edad del paciente")
-    val edad = readLine()?.toIntOrNull() ?: 0
 
-    println("¿Tiene seguro? (s/n)")
-    val tieneSeguro = readLine()?.trim()?.lowercase() == "s"
+    print("Ingrese el nombre del empleado: ")
+    val nombre = readLine() ?: ""
 
-    val nivelSeguro = if (tieneSeguro) {
-        println("Nivel del paciente con seguro (BASICO, INTERMEDIO, AVANZADO)")
-        readLine()?.trim()?.uppercase() ?: ""
-    } else {
-        ""
+    print("Ingrese el salario: ")
+    val salario = readLine()?.toDoubleOrNull() ?: 0.0
+
+    when {
+        salario >= 2000 -> println("$nombre pertenece a la categoría Gerencial.")
+        salario >= 1200 -> println("$nombre pertenece a la categoría Profesional.")
+        salario >= 600 -> println("$nombre pertenece a la categoría Administrativa.")
+        else -> println("$nombre pertenece a la categoría Operativa.")
     }
-
-    val copago = when {
-        !tieneSeguro && edad < 18 -> 0.0
-        !tieneSeguro && edad <= 65 -> 15.0
-        !tieneSeguro && edad > 65 -> 45.0
-        nivelSeguro == "BASICO" -> 20.0
-        nivelSeguro == "INTERMEDIO" -> 10.0
-        nivelSeguro == "AVANZADO" -> 0.0
-        else -> 30.0
-    }
-
-    println("Copago aplicado es: $${"%.2f".format(copago)}")
 }

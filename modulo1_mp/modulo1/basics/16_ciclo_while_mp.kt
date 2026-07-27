@@ -1,31 +1,22 @@
-fun main (){
-    println("Ciclos while")
-    println("While basico")
-    var contador = 1
-    while (contador<=5){
-        println("contador")
-        contador++
+fun main() {
+
+    var continuar = "S"
+
+    while (continuar.uppercase() == "S") {
+
+        print("Ingrese el nombre del empleado: ")
+        val nombre = readLine() ?: ""
+
+        print("Ingrese el cargo: ")
+        val cargo = readLine() ?: ""
+
+        println("\nEmpleado registrado:")
+        println("Nombre: $nombre")
+        println("Cargo: $cargo")
+
+        print("\n¿Desea registrar otro empleado? (S/N): ")
+        continuar = readLine() ?: "N"
     }
-    contador = 1 
-    do {
-        println("contador")
-        contador++
-    } while (contador <= 5)
 
-    println("brake = continue")
-    contador = 1
-    while (contador <= 10){
-        contador++
-        if (contador == 3) continue
-        if (contador == 7) break
-        println(contador)
-}
-
-var input: String
-    while (true){
-        println("Escribe 'salir' para terminar")
-        input = readLine()?:""
-        if (input == "salir") break
-        println("Ingresaste: $input")
-}
+    println("Fin del registro.")
 }

@@ -1,5 +1,5 @@
 fun main() {
-    val nombre = "Heymi"
+    val nombre = "JC_RRHH"
     val edad: Int = 20
     var contador = 0 
     contador = contador + 1
@@ -26,8 +26,8 @@ fun main() {
     val inferidoInt = 12
     println("Tipo: ${inferidoInt::class.simpleName}")
 
-    val primerNombre = "Alex"
-    val primerApellido = "Perez" // Corregido: "primerapellido" -> "primerApellido"
+    val primerNombre = "JC"
+    val primerApellido = "ES" // Corregido: "primerapellido" -> "primerApellido"
     
     val primerNombreMayuscula = primerNombre.uppercase()
     val primerApellidoMayuscula = primerApellido.uppercase()

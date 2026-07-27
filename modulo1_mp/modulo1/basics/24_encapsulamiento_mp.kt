@@ -1,36 +1,70 @@
-class Temperatura(celsius: Double) {
+class Empleado(
+    val codigo: String,
+    val nombre: String
+) {
 
-    // ENCAPSULAMIENTO: el setter valida antes de asignar
-    var celsius: Double = celsius
-        set(value) {
-            require(value >= -273.15) { "Temperatura bajo el cero absoluto" }
-            field = value  // 'field' es el backing field
+    // Atributos privados
+    private var salario: Double = 0.0
+    private var diasVacaciones: Int = 0
+
+    // Método para cambiar salario
+    fun actualizarSalario(nuevoSalario: Double) {
+
+        if (nuevoSalario > 0) {
+            salario = nuevoSalario
+            println("Salario actualizado correctamente.")
+        } else {
+            println("El salario no puede ser negativo.")
         }
+    }
 
-    // ABSTRACCIÓN: el usuario consulta fahrenheit sin saber la fórmula
-    val fahrenheit: Double
-        get() = celsius * 9.0 / 5.0 + 32.0
+    // Método para consultar salario
+    fun consultarSalario(): Double {
+        return salario
+    }
 
-    val kelvin: Double
-        get() = celsius + 273.15
+    // Método para asignar vacaciones
+    fun asignarVacaciones(dias: Int) {
 
-    val descripcion: String
-        get() = when {
-            celsius < 0  -> "Bajo cero"
-            celsius < 15 -> "Frío"
-            celsius < 25 -> "Templado"
-            celsius < 35 -> "Caluroso"
-            else         -> "Muy caluroso"
+        if (dias >= 0) {
+            diasVacaciones = dias
         }
+    }
+
+    // Método para consultar vacaciones
+    fun consultarVacaciones(): Int {
+        return diasVacaciones
+    }
+
+    fun mostrarEmpleado() {
+
+        println("\n=== DATOS DEL EMPLEADO ===")
+        println("Código: $codigo")
+        println("Nombre: $nombre")
+        println("Salario: $$salario")
+        println("Vacaciones: $diasVacaciones días")
+    }
 }
 
 fun main() {
-    val temp = Temperatura(20.0)
-    println("${temp.celsius}°C = ${temp.fahrenheit}°F = ${temp.kelvin}K")
-    println(temp.descripcion)  // Templado
 
-    temp.celsius = -5.0
-    println("${temp.celsius}°C → ${temp.descripcion}")  // Bajo cero
+    print("Código del empleado: ")
+    val codigo = readLine() ?: ""
 
-    // temp.celsius = -300.0  // IllegalArgumentException
+    print("Nombre del empleado: ")
+    val nombre = readLine() ?: ""
+
+    val empleado = Empleado(codigo, nombre)
+
+    print("Ingrese el salario: ")
+    val salario = readLine()?.toDoubleOrNull() ?: 0.0
+
+    empleado.actualizarSalario(salario)
+
+    print("Ingrese días de vacaciones: ")
+    val vacaciones = readLine()?.toIntOrNull() ?: 0
+
+    empleado.asignarVacaciones(vacaciones)
+
+    empleado.mostrarEmpleado()
 }

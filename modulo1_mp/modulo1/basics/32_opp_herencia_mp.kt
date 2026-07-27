@@ -1,40 +1,68 @@
-// Sin open — no se puede heredar (protección por defecto)
-class Animal(val nombre: String)
-// class Perro : Animal("Rex")  // ERROR — Animal es final
+// Clase padre
+open class Empleado(
+    val id: Int,
+    val nombre: String,
+    val salario: Double
+) {
 
-// Con open — la jerarquía está diseñada para ello
-open class Animal(val nombre: String, val sonido: String) {
-    // open — la subclase PUEDE sobreescribir
-    open fun hacerSonido() = println("$nombre dice: $sonido")
-    open fun descripcion() = "Soy $nombre"
-
-    // Sin open — la subclase NO puede sobreescribir
-    fun respirar() = println("$nombre respira")
-}
-
-// HERENCIA: Perro reutiliza todo de Animal y especializa hacerSonido
-class Perro(nombre: String) : Animal(nombre, "Guau") {
-    override fun hacerSonido() {
-        super.hacerSonido()          // reutiliza la implementación del padre
-        println("(mueve la cola)")   // añade comportamiento propio
+    open fun mostrarDatos() {
+        println("\n=== EMPLEADO ===")
+        println("ID: $id")
+        println("Nombre: $nombre")
+        println("Salario: $$salario")
     }
-    override fun descripcion() = "${super.descripcion()}, un perro"
 }
 
-class Gato(nombre: String, val interior: Boolean) : Animal(nombre, "Miau") {
-    override fun descripcion() =
-        "${super.descripcion()}, un gato ${if (interior) "de interior" else "callejero"}"
+// Clase hija Gerente
+class Gerente(
+    id: Int,
+    nombre: String,
+    salario: Double,
+    val departamento: String
+) : Empleado(id, nombre, salario) {
+
+    override fun mostrarDatos() {
+        println("\n=== GERENTE ===")
+        println("ID: $id")
+        println("Nombre: $nombre")
+        println("Salario: $$salario")
+        println("Departamento: $departamento")
+    }
+}
+
+// Clase hija Asistente
+class Asistente(
+    id: Int,
+    nombre: String,
+    salario: Double,
+    val extension: String
+) : Empleado(id, nombre, salario) {
+
+    override fun mostrarDatos() {
+        println("\n=== ASISTENTE ===")
+        println("ID: $id")
+        println("Nombre: $nombre")
+        println("Salario: $$salario")
+        println("Extensión telefónica: $extension")
+    }
 }
 
 fun main() {
-    val perro = Perro("Rex")
-    perro.hacerSonido()
-    // Rex dice: Guau
-    // (mueve la cola)
 
-    val gato = Gato("Misi", true)
-    println(gato.descripcion())  // Soy Misi, un gato de interior
+    val gerente = Gerente(
+        1,
+        "María López",
+        2500.0,
+        "Recursos Humanos"
+    )
 
-    // Herencia — Perro y Gato tienen todo lo de Animal más lo propio
-    perro.respirar()  // Rex respira — heredado de Animal
+    val asistente = Asistente(
+        2,
+        "Juan Pérez",
+        1200.0,
+        "101"
+    )
+
+    gerente.mostrarDatos()
+    asistente.mostrarDatos()
 }

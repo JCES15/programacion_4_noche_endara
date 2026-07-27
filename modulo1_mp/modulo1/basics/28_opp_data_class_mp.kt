@@ -1,33 +1,31 @@
-data class Producto(
-    val id:        Int,
-    val nombre:    String,
-    val precio:    Double,
-    val categoria: String,
-    val activo:    Boolean = true
+data class Empleado(
+    val id: Int,
+    val nombre: String,
+    val cargo: String,
+    val salario: Double
 )
 
 fun main() {
-    val p1 = Producto(1, "Teclado mecánico", 89.99, "Periféricos")
-    val p2 = Producto(1, "Teclado mecánico", 89.99, "Periféricos")
-    val p3 = Producto(2, "Monitor 27\"",     349.99, "Pantallas")
 
-    // toString() automático
-    println(p1)  // Producto(id=1, nombre=Teclado mecánico, ...)
+    print("Ingrese el ID: ")
+    val id = readLine()?.toIntOrNull() ?: 0
 
-    // equals() por valor
-    println(p1 == p2)   // true
-    println(p1 == p3)   // false
+    print("Ingrese el nombre: ")
+    val nombre = readLine() ?: ""
 
-    // copy() — nuevo objeto con cambios puntuales
-    val barato   = p1.copy(precio = 59.99)
-    val inactivo = p1.copy(activo = false)
+    print("Ingrese el cargo: ")
+    val cargo = readLine() ?: ""
 
-    // Desestructuración
-    val (id, nombre, precio) = p1
-    println("$id: $nombre — $$precio")
+    print("Ingrese el salario: ")
+    val salario = readLine()?.toDoubleOrNull() ?: 0.0
 
-    // En bucles
-    listOf(p1, p3).forEach { (id2, nombre2, precio2) ->
-        println("[$id2] $nombre2: $$precio2")
-    }
+    val empleado = Empleado(
+        id,
+        nombre,
+        cargo,
+        salario
+    )
+
+    println("\n=== DATOS DEL EMPLEADO ===")
+    println(empleado)
 }
